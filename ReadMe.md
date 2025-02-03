@@ -33,6 +33,7 @@ To strech there can be a time limit of how many you find in a set time.
 - Timer that counts down at start
 - Game ends when timer hits zero - gives final score
 - Possible animations or UI elements
+- Change the value of the pair the player is trying to match
 
 ## Code Notes
 
