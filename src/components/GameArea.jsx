@@ -13,7 +13,21 @@ const cardList = [
   { id: 9, value: 9 },
 ];
 
+function createRandomArray() {
+  const basicArray = [1, 2, 3, 4, 5, 6, 7, 8];
+  const random = Math.floor(Math.random() * 8);
+  basicArray.push(basicArray[random]);
+  return basicArray;
+}
+
+function makeArrayUsable() {
+  // call createRandomArray
+  // randomise the list
+  // turn list into id: 1, value: [id-1]
+}
+
 function GameArea() {
+  // const randomArray = makeArrayUsable();
   return (
     <div className="game-area">
       {cardList.map((cardObject) => {
