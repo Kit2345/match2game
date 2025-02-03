@@ -1,5 +1,10 @@
-function Card() {
-  return <>This will be the card component</>;
+function Card(props) {
+  return (
+    <>
+      {/* {console.log(props.cardObject)} */}
+      <p>{props.cardProp}</p>
+    </>
+  );
 }
 
 export default Card;

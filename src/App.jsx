@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Card from "./components/Card";
+import GameArea from "./components/GameArea";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -17,7 +18,8 @@ function App() {
           Start Game
         </button>
       </div>
-      <Card />
+      {/* <Card /> */}
+      <GameArea />
     </>
   );
 }
