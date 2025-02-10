@@ -1,15 +1,25 @@
 import { useState } from "react";
 
+
 function Card(props) {
   const [revealed, setRevealed] = useState(false);
+  
+  // What We Want To Acheive
+  // function clickActions() {
+  //   setRevealed(!revealed);
+  //   props.cardsClicked();
+  // }
 
   return (
-    // <div onClick={() => setRevealed(!revealed)}>
-    <div onClick={() => props.cardsClicked()}>
+    <>
+    <div onClick={(() => props.cardsClicked())}>
       {/* {console.log(props.cardsClicked())} */}
       {/* {console.log(props.cardObject)} */}
       {revealed ? <p>{props.cardProp}</p> : <p>?</p>}
     </div>
+    {/*<div onClick={() => setRevealed(!revealed)}>
+    </div> */}
+    </>
   );
 }
 
