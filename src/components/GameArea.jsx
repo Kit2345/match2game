@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Card from "./Card";
 
 // const cardList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -26,24 +27,42 @@ function makeArrayUsable() {
   // turn list into id: 1, value: [id-1]
   const newCardArray = createRandomArray();
   for (let i = newCardArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i));
+    const j = Math.floor(Math.random() * i);
     [newCardArray[i], newCardArray[j]] = [newCardArray[j], newCardArray[i]];
   }
   for (let i = 0; i < newCardArray.length; i++) {
-    newCardArray[i] = { id: i, value: newCardArray[i] };
+    newCardArray[i] = { id: i, cardValue: newCardArray[i] };
   }
   return newCardArray;
 }
 
 function GameArea() {
+  const [cardsClicked, setCardsClicked] = useState(0);
+
+  function countCardsClicked() {
+    if (cardsClicked < 2) {
+      setCardsClicked(cardsClicked + 1);
+    } else setCardsClicked(1);
+    console.log(`Clicked ${cardsClicked}`);
+  }
+
   const randomArray = makeArrayUsable();
   // console.log(randomArray);
   return (
-    <div className="game-area">
-      {randomArray.map((cardObject) => {
-        return <Card key={cardObject.id} cardProp={cardObject.value} />;
-      })}
-    </div>
+    <>
+      <p>{cardsClicked}</p>
+      <div className="game-area">
+        {randomArray.map((cardObject) => {
+          return (
+            <Card
+              key={cardObject.id}
+              cardProp={cardObject.cardValue}
+              cardsClicked={countCardsClicked}
+            />
+          );
+        })}
+      </div>
+    </>
   );
 }
 
@@ -63,3 +82,6 @@ export default GameArea;
 //       </>
 //     );
 //   }
+
+// Store state of number of cards turned
+// Store

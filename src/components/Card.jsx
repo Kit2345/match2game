@@ -1,15 +1,14 @@
 import { useState } from "react";
 
 function Card(props) {
-  const [count, setCount] = useState(false);
+  const [revealed, setRevealed] = useState(false);
 
   return (
-    <div onClick={() => setCount(!count)}>
+    // <div onClick={() => setRevealed(!revealed)}>
+    <div onClick={() => props.cardsClicked()}>
+      {/* {console.log(props.cardsClicked())} */}
       {/* {console.log(props.cardObject)} */}
-      {count ? 
-      <p>{props.cardProp}</p>
-      :
-      <p>?</p>}
+      {revealed ? <p>{props.cardProp}</p> : <p>?</p>}
     </div>
   );
 }
