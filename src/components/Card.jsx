@@ -4,13 +4,13 @@ function Card(props) {
   const [count, setCount] = useState(false);
 
   return (
-    <p onClick={() => setCount(!count)}>
+    <div onClick={() => setCount(!count)}>
       {/* {console.log(props.cardObject)} */}
       {count ? 
       <p>{props.cardProp}</p>
       :
       <p>?</p>}
-    </p>
+    </div>
   );
 }
 

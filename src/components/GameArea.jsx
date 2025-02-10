@@ -1,17 +1,17 @@
 import Card from "./Card";
 
 // const cardList = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-const cardList = [
-  { id: 1, value: 1 },
-  { id: 2, value: 2 },
-  { id: 3, value: 3 },
-  { id: 4, value: 4 },
-  { id: 5, value: 5 },
-  { id: 6, value: 6 },
-  { id: 7, value: 7 },
-  { id: 8, value: 8 },
-  { id: 9, value: 9 },
-];
+// const cardList = [
+//   { id: 1, value: 1 },
+//   { id: 2, value: 2 },
+//   { id: 3, value: 3 },
+//   { id: 4, value: 4 },
+//   { id: 5, value: 5 },
+//   { id: 6, value: 6 },
+//   { id: 7, value: 7 },
+//   { id: 8, value: 8 },
+//   { id: 9, value: 9 },
+// ];
 
 function createRandomArray() {
   const basicArray = [1, 2, 3, 4, 5, 6, 7, 8];
@@ -24,13 +24,23 @@ function makeArrayUsable() {
   // call createRandomArray
   // randomise the list
   // turn list into id: 1, value: [id-1]
+  const newCardArray = createRandomArray();
+  for (let i = newCardArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i));
+    [newCardArray[i], newCardArray[j]] = [newCardArray[j], newCardArray[i]];
+  }
+  for (let i = 0; i < newCardArray.length; i++) {
+    newCardArray[i] = { id: i, value: newCardArray[i] };
+  }
+  return newCardArray;
 }
 
 function GameArea() {
-  // const randomArray = makeArrayUsable();
+  const randomArray = makeArrayUsable();
+  // console.log(randomArray);
   return (
     <div className="game-area">
-      {cardList.map((cardObject) => {
+      {randomArray.map((cardObject) => {
         return <Card key={cardObject.id} cardProp={cardObject.value} />;
       })}
     </div>
