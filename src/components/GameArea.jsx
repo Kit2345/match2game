@@ -30,24 +30,24 @@ function makeArrayUsable() {
     const j = Math.floor(Math.random() * i);
     [newCardArray[i], newCardArray[j]] = [newCardArray[j], newCardArray[i]];
   }
-  for (let i = 0; i < newCardArray.length; i++) {
-    newCardArray[i] = { id: i, cardValue: newCardArray[i] };
-  }
-  return newCardArray;
+  // for (let i = 0; i < newCardArray.length; i++) {
+  //   newCardArray[i] = { id: i, cardValue: newCardArray[i] };
+  //}
+  return newCardArray.map((value, index) => ({ id: index, cardValue: value }));
 }
 
 function GameArea() {
   const [cardsClicked, setCardsClicked] = useState(0);
+  const [randomArray, setRandomArray] = useState(() => makeArrayUsable())
 
   function countCardsClicked() {
     if (cardsClicked < 2) {
       setCardsClicked(cardsClicked + 1);
     } else setCardsClicked(1);
     console.log(`Clicked ${cardsClicked}`);
+    // setCarsClicked((prev) => (prev < 2 ? prev + 1 : 1));
   }
 
-  const randomArray = makeArrayUsable();
-  // console.log(randomArray);
   return (
     <>
       <p>{cardsClicked}</p>
@@ -68,20 +68,4 @@ function GameArea() {
 
 export default GameArea;
 
-// function GameArea() {
-//     return (
-//       <>
-//         {cardList.map((cardObject) => {
-//           return (
-//           <Card
-//           key={cardObject.id}
-//           cardProp={cardObject}
-//           />
-//           )
-//         })}
-//       </>
-//     );
-//   }
 
-// Store state of number of cards turned
-// Store

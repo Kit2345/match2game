@@ -5,14 +5,14 @@ function Card(props) {
   const [revealed, setRevealed] = useState(false);
   
   // What We Want To Acheive
-  // function clickActions() {
-  //   setRevealed(!revealed);
-  //   props.cardsClicked();
-  // }
+  function handleClick() {
+    setRevealed((prev) => !prev);
+    props.cardsClicked();
+  }
 
   return (
     <>
-    <div onClick={(() => props.cardsClicked())}>
+    <div onClick={handleClick}>
       {/* {console.log(props.cardsClicked())} */}
       {/* {console.log(props.cardObject)} */}
       {revealed ? <p>{props.cardProp}</p> : <p>?</p>}
