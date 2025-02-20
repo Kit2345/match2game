@@ -34,6 +34,16 @@ Tasks:
 - Score counter that adds one each time a pair is found
 - Start button to click before the cards are 'dealt' onscreen
 
+Task:
+If not already done, then add state for running total/score
+Make start button functional -> make use of reset function from previous MVP -> where gamearea is called inside a reset function. Maybe activate gamearea()? or change the randomarray state?
+
+Or
+SetRandomarray as blank array, so nothing displays. THen start button or reset button:
+uses setRandomArray and fills it with makearrayuseable() -> sets up the array.
+
+-> Function to start game (reset game board, hide cards, but leave scores as it is). Start new game -> re-use start game fucntion but also resets score
+
 ### MVP 3
 
 - As above but also:
