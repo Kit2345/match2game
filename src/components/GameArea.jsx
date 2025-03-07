@@ -56,17 +56,25 @@ function GameArea() {
       setCompare(value);
       console.log("0 selected", compare, value);
     } else if (revealed.length === 1) {
+      setRevealed([...revealed, id]);
       if (compare === value) {
         setScore((prev) => prev + 1);
         console.log("win", score);
+        resetGame();
+      } else {
+        setCompare(0);
+        console.log("0 selected", compare, value);
       }
-      setRevealed([...revealed, id]);
-      setCompare(0);
-      console.log("0 selected", compare, value);
     } else {
       setRevealed([id]);
       setCompare(id);
     }
+  }
+
+  function resetGame() {
+    setRevealed([]);
+    setCompare(0);
+    setRandomArray(makeArrayUsable());
   }
 
   return (
