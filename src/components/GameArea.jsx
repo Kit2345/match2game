@@ -37,22 +37,25 @@ function makeArrayUsable() {
 }
 
 function GameArea() {
-  const [cardsClicked, setCardsClicked] = useState(0);
+  // const [cardsClicked, setCardsClicked] = useState(0);
   const [randomArray, setRandomArray] = useState(() => makeArrayUsable());
   const [revealed, setRevealed] = useState([]);
 
   function handleClick(id) {
-    if (cardsClicked < 2) {
-      setCardsClicked(cardsClicked + 1);
-    } else setCardsClicked(1);
-    console.log(`Clicked ${cardsClicked}`);
-    // setCarsClicked((prev) => (prev < 2 ? prev + 1 : 1));
-    setRevealed([...revealed, id]);
+    // if (cardsClicked < 2) {
+    //   setCardsClicked(cardsClicked + 1);
+    // } else setCardsClicked(1);
+    // console.log(`Clicked ${cardsClicked}`);
+    // // setCarsClicked((prev) => (prev < 2 ? prev + 1 : 1));
+    // setRevealed([...revealed, id]);
+
+    if (revealed.length === 2) {
+      setTimeout(() => setRevealed([id]), 1000);
+    } else setRevealed([...revealed, id]);
   }
 
   return (
     <>
-      <p>{cardsClicked}</p>
       <div className="game-area">
         {randomArray.map((cardObject) => {
           return (

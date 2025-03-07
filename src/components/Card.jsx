@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 function Card(props) {
   // const [revealed, setRevealed] = useState(false);
@@ -21,23 +21,21 @@ function Card(props) {
     </>
   );
 
-  //   }
-
-  return (
-    <>
-      <div onClick={() => props.cardsClicked(props.id)}>
-        {/* {console.log(props.cardsClicked())} */}
-        {/* {console.log(props.cardObject)} */}
-        {props.revealed.includes(props.id) ? (
-          <p>{props.cardValue}</p>
-        ) : (
-          <p>?</p>
-        )}
-      </div>
-      {/*<div onClick={() => setRevealed(!revealed)}>
-    </div> */}
-    </>
-  );
+  // return (
+  //   <>
+  //     <div onClick={() => props.cardsClicked(props.id)}>
+  //       {/* {console.log(props.cardsClicked())} */}
+  //       {/* {console.log(props.cardObject)} */}
+  //       {props.revealed.includes(props.id) ? (
+  //         <p>{props.cardValue}</p>
+  //       ) : (
+  //         <p>?</p>
+  //       )}
+  //     </div>
+  //     {/*<div onClick={() => setRevealed(!revealed)}>
+  //   </div> */}
+  //   </>
+  // );
 }
 
 export default Card;
