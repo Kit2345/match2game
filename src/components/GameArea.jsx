@@ -77,6 +77,9 @@ function GameArea() {
 
   return (
     <>
+      <p>
+        <button onClick={resetGame}>Start Game</button>
+      </p>
       <div>Score: {score}</div>
       <div className="game-area">
         {randomArray.map((cardObject) => {

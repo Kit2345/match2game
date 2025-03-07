@@ -14,9 +14,9 @@ function App() {
       <div className="game-notes">
         <p>Aim is to find the matching pair of cards in the grid.</p>
         <p>Click on the start button to begin.</p>
-        <button onClick={() => setCount((count) => count + 1)}>
+        {/* <button onClick={() => setCount((count) => count + 1)}>
           Start Game
-        </button>
+        </button> */}
       </div>
       {/* <Card /> */}
       <GameArea />
