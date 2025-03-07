@@ -54,7 +54,6 @@ function GameArea() {
     if (revealed.length === 2) {
       setTimeout(() => setRevealed([id]), 500);
       setCompare(value);
-      console.log("0 selected", compare, value);
     } else if (revealed.length === 1) {
       setRevealed([...revealed, id]);
       if (compare === value) {
@@ -63,7 +62,6 @@ function GameArea() {
         setTimeout(() => resetGame(), 2000);
       } else {
         setCompare(0);
-        console.log("0 selected", compare, value);
       }
     } else {
       setRevealed([id]);
