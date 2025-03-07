@@ -38,14 +38,16 @@ function makeArrayUsable() {
 
 function GameArea() {
   const [cardsClicked, setCardsClicked] = useState(0);
-  const [randomArray, setRandomArray] = useState(() => makeArrayUsable())
+  const [randomArray, setRandomArray] = useState(() => makeArrayUsable());
+  const [revealed, setRevealed] = useState([]);
 
-  function countCardsClicked() {
+  function handleClick(id) {
     if (cardsClicked < 2) {
       setCardsClicked(cardsClicked + 1);
     } else setCardsClicked(1);
     console.log(`Clicked ${cardsClicked}`);
     // setCarsClicked((prev) => (prev < 2 ? prev + 1 : 1));
+    setRevealed([...revealed, id]);
   }
 
   return (
@@ -56,8 +58,10 @@ function GameArea() {
           return (
             <Card
               key={cardObject.id}
-              cardProp={cardObject.cardValue}
-              cardsClicked={countCardsClicked}
+              cardValue={cardObject.cardValue}
+              cardsClicked={handleClick}
+              revealed={revealed}
+              id={cardObject.id}
             />
           );
         })}
@@ -67,5 +71,3 @@ function GameArea() {
 }
 
 export default GameArea;
-
-

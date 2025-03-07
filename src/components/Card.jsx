@@ -1,23 +1,40 @@
 import { useState } from "react";
 
-
 function Card(props) {
-  const [revealed, setRevealed] = useState(false);
-  
+  // const [revealed, setRevealed] = useState(false);
+
   // What We Want To Acheive
-  function handleClick() {
-    setRevealed((prev) => !prev);
-    props.cardsClicked();
-  }
+  // function handleClick() {
+  //   setRevealed((prev) => !prev);
+  //   props.cardsClicked();
+  // }
+
+  return props.revealed.includes(props.id) ? (
+    <>
+      <p>{props.cardValue}</p>
+    </>
+  ) : (
+    <>
+      <div onClick={() => props.cardsClicked(props.id)}>
+        <p>?</p>
+      </div>
+    </>
+  );
+
+  //   }
 
   return (
     <>
-    <div onClick={handleClick}>
-      {/* {console.log(props.cardsClicked())} */}
-      {/* {console.log(props.cardObject)} */}
-      {revealed ? <p>{props.cardProp}</p> : <p>?</p>}
-    </div>
-    {/*<div onClick={() => setRevealed(!revealed)}>
+      <div onClick={() => props.cardsClicked(props.id)}>
+        {/* {console.log(props.cardsClicked())} */}
+        {/* {console.log(props.cardObject)} */}
+        {props.revealed.includes(props.id) ? (
+          <p>{props.cardValue}</p>
+        ) : (
+          <p>?</p>
+        )}
+      </div>
+      {/*<div onClick={() => setRevealed(!revealed)}>
     </div> */}
     </>
   );
