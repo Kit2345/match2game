@@ -15,7 +15,7 @@ function Card(props) {
     </>
   ) : (
     <>
-      <div onClick={() => props.cardsClicked(props.id)}>
+      <div onClick={() => props.cardsClicked(props.id, props.cardValue)}>
         <p>?</p>
       </div>
     </>

@@ -40,8 +40,10 @@ function GameArea() {
   // const [cardsClicked, setCardsClicked] = useState(0);
   const [randomArray, setRandomArray] = useState(() => makeArrayUsable());
   const [revealed, setRevealed] = useState([]);
+  const [compare, setCompare] = useState(0);
+  const [score, setScore] = useState(0);
 
-  function handleClick(id) {
+  function handleClick(id, value) {
     // if (cardsClicked < 2) {
     //   setCardsClicked(cardsClicked + 1);
     // } else setCardsClicked(1);
@@ -51,11 +53,25 @@ function GameArea() {
 
     if (revealed.length === 2) {
       setTimeout(() => setRevealed([id]), 1000);
-    } else setRevealed([...revealed, id]);
+      setCompare(value);
+      console.log("0 selected", compare, value);
+    } else if (revealed.length === 1) {
+      if (compare === value) {
+        setScore((prev) => prev + 1);
+        console.log("win", score);
+      }
+      setRevealed([...revealed, id]);
+      setCompare(0);
+      console.log("0 selected", compare, value);
+    } else {
+      setRevealed([id]);
+      setCompare(id);
+    }
   }
 
   return (
     <>
+      <div>Score: {score}</div>
       <div className="game-area">
         {randomArray.map((cardObject) => {
           return (
