@@ -21,12 +21,12 @@ To strech there can be a time limit of how many you find in a set time.
 - If cards match, game resets
 - If cards do not match, they turn face down again
 
-Tasks:
-DONE (click 1, click 2 -> when third click, will revert the previous two => so only 2 cards shown at once)
+Tasks: DONE. Add other cosmetics?
+(click 1, click 2 -> when third click, will revert the previous two => so only 2 cards shown at once)
 (Then add conditional of comparing and scoring) -> match = +1 point.
 (Game board resets) -> scores carry over.
 (Add pause if wanted before it automatically revert unless click before) -> wouldnt affect state, only cosmetic
-Want to add anything else? (Add other cosmetics?)
+(Add other cosmetics?)
 
 ### MVP 2
 
