@@ -59,7 +59,7 @@ function GameArea() {
       if (compare === value) {
         setScore((prev) => prev + 1);
         console.log("win", score);
-        setTimeout(() => resetGame(), 2000);
+        setTimeout(() => resetBoard(), 2000);
       } else {
         setCompare(0);
       }
@@ -69,16 +69,21 @@ function GameArea() {
     }
   }
 
-  function resetGame() {
+  function resetBoard() {
     setRevealed([]);
     setCompare(0);
     setRandomArray(makeArrayUsable());
   }
 
+  function newGame() {
+    resetGame();
+    setScore(0);
+  }
+
   return (
     <>
       <p>
-        <button onClick={resetGame}>Start Game</button>
+        <button onClick={newGame}>Reset Game</button>
       </p>
       <div>Score: {score}</div>
       <div className="game-area">

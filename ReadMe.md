@@ -26,13 +26,13 @@ Tasks: DONE. Add other cosmetics?
 (Then add conditional of comparing and scoring) -> match = +1 point.
 (Game board resets) -> scores carry over.
 (Add pause if wanted before it automatically revert unless click before) -> wouldnt affect state, only cosmetic
-(Add other cosmetics?)
+(Add other cosmetics?) -> maybe more visually obvious that the cards matched.
 
 ### MVP 2
 
 - As above but also:
 - Score counter that adds one each time a pair is found
-- Start button to click before the cards are 'dealt' onscreen
+- Start button to click before the cards are 'dealt' onscreen -> still to do.
 
 Task:
 If not already done, then add state for running total/score
